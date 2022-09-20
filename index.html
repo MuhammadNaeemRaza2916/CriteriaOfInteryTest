@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criteria for Intery Test</title>
+    <title>Criteria for Entry Test</title>
 </head>
 <body>
     
-    <h1>Sylani Entery test Criteria</h1>
+    <h1>Sylani Entry test Criteria</h1>
 
     <form onsubmit="conditionCheck(); return false">
-        Please enter your Colification: <input type="text" id="text1" required>
+        Please enter your qualification: <input type="text" id="text1" required>
         <br>
         Please enter your gender: <input type="text" id="text2" required>
+        <br>
+        Do you already enrolled in any course of SMIT currently? <input type="text" id="text3" required>
         <br>
         <button type="submit">Submit</button>        
 
@@ -25,13 +27,25 @@
         function conditionCheck() {
            let var1 = document.querySelector("#text1").value;
            let var2 = document.querySelector("#text2").value;
+           let var3 = document.querySelector("#text3").value;
 
-            if(var1 === "Matric" && var2 === "Male"){
-                document.querySelector("#result").innerHTML= "You are eligible";
-            }
-            else {
-                console.log("Fail");
-                document.querySelector("#result").innerHTML= "You are not eligible, Good luck for next time.";
+            if(var1 === "Matric" || var1 === "matric"){
+                if(var2 === "Male" || var2 === "male"){
+                   if(var3 === "No" || var3 === "no"){
+                    console.log("You are eligible");
+                    document.querySelector("#result").innerHTML= "You are eligible";
+                   }
+                   else {
+                       console.log("Fail");
+                       document.querySelector("#result").innerHTML= "You are not eligible, Good luck for next time.";
+                   }
+                }else {
+                       console.log("Fail");
+                       document.querySelector("#result").innerHTML= "You are not eligible, Good luck for next time.";
+                }
+            }else {
+                       console.log("Fail");
+                       document.querySelector("#result").innerHTML= "You are not eligible, Good luck for next time.";
             }
         }
     </script>
